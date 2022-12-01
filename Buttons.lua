@@ -125,7 +125,6 @@ local options = {
 			max = 2.5,
 			step = 0.01,
 			bigStep = 0.01,
-			--width = 2,
 			disabled = function()
 				return not mod.db.allowDragging
 			end,
@@ -558,11 +557,7 @@ do
 			local buttonScale = mod.db.buttonScale
 			local mapScale = mod:GetMapScale()
 
-			print("buttonScale: ", buttonScale, " mapScale: ", mapScale)
-
 			if buttonScale and buttonScale ~= mapScale then
-				--bx = bx * 2
-				--by = by * 2
 				frame:SetScale(buttonScale / mapScale)
 			end
 		end
@@ -601,11 +596,12 @@ do
 		end
 		dragFrame:SetScript("OnUpdate", updatePosition)
 	end
+
 	local OnDragStop = function()
 		dragFrame:SetScript("OnUpdate", nil)
 		moving = nil
 		fadeStop = false
-		ButtonFadeOut() -- Call the fade out function
+		ButtonFadeOut()
 	end
 
 	function mod:MakeMovable(frame, altFrame)
