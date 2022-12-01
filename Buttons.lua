@@ -552,7 +552,7 @@ do
 		local radius = (Minimap:GetWidth() / 2) + mod.db.radius
 		local bx, by = sm.shapes:GetPosition(angle, radius)
 
-		-- adjust button size and center offset for custom button scale
+		-- adjust button size for custom button scale
 		do
 			local buttonScale = mod.db.buttonScale
 			local mapScale = mod:GetMapScale()
